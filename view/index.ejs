@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table>
+      <form action="/add" method="post">
+        <input type="text" name="task">
+        <input type="submit" value="追加">
+        <% tasklist.forEach(function(value){%>
+        <tr>
+          <td><input type="checkbox" value="<%= value.checkbox %> " /></td>
+          <td><%= value.task %></td>
+          
+          <td><a href="/edit/<%= value.id %> "><input type="button" value="edit"></a></td>
+          <td><a href="/delete/<%= value.id %> "><input type="button" value="delete"></a></td>
+        </tr>
+        <% }); %>
+      </form>
+    </table>
+    <hr>
+    <h2>実行済み</h2>
+  </body>
+</html>
